@@ -1,52 +1,59 @@
-# fraud-network-analysis
-Exploring suspicious patterns in credit card transaction networks using BFS and graph analysis.
+# Fraud Network Analysis with BFS & Graph Exploration
 
-# Fraud Network Analysis with BFS and Graph Analytics
+## 📝 Project Summary
 
-## 📊 Project Overview
-This project explores fraud detection using graph-based network analysis.  
-We analyze the **IEEE-CIS Fraud Detection Dataset** by constructing a transaction-entity network and applying **Breadth-First Search (BFS)** to investigate fraud clustering behavior.
+This project explores the behavior of fraudulent transactions in financial networks using graph analysis techniques. We analyzed two datasets:
+
+- **IEEE-CIS Fraud Detection Dataset (Tabular)** — Used to infer transaction-entity relationships.
+- **Elliptic Bitcoin Dataset (Real Transaction Graph)** — Provided direct transaction links and class labels.
 
 ---
 
-## 🛠️ Key Features
-- ✅ Transaction graph builder linking transactions to cards, devices, and other entities.
-- ✅ Visualization of transaction neighborhoods.
-- ✅ BFS-based fraud neighbor analysis at configurable depths.
-- ✅ Statistical testing (t-test, chi-square) of fraud clustering.
-- ✅ Exploratory Jupyter notebooks showcasing analysis.
+## 🔍 Key Analyses Performed
+
+- **Graph Construction** — Built directed transaction graphs from real-world and tabular data.
+- **BFS Exploration** — Analyzed fraud neighbor relationships within defined hop limits.
+- **Connected Component Analysis** — Explored how fraud clusters within transaction networks.
+- **Centrality Metrics Comparison** — Assessed the role of fraudulent transactions in network structures.
+
+---
+
+## 📊 Key Findings
+
+- **Fraud Tends to Be Peripheral:**  
+  Fraudulent transactions exhibit low degree, betweenness, and closeness centrality, suggesting they operate on the fringes of the transaction network.
+
+- **No Clear Centrality-Fraud Correlation:**  
+  Fraud density remained negligible across increasing centrality metrics. This suggests fraud detection models should not overly rely on classical centrality measures.
+
+- **Large Mixed Components:**  
+  In the Bitcoin dataset, frauds appear within large, mixed transaction components, often accompanied by licit and unknown nodes.
+
+- **Limited Local Clustering:**  
+  BFS exploration around fraudulent transactions showed limited direct fraud neighbor connectivity, indicating isolated or hidden fraud behavior.
+
+---
+
+## 📈 Visualizations & Reports
+
+- Fraud density vs. centrality plots
+- BFS neighbor explorations
+- Connected component summaries
+- Centrality distribution comparisons
+
+---
+
+## 🚀 What's Next?
+
+- Apply community detection algorithms for potential fraud cluster discovery.
+- Explore graph embeddings (e.g., Node2Vec) for pattern recognition.
+- Integrate time-based transactional analysis.
 
 ---
 
 ## 🗂️ Project Structure
-/data # Raw datasets (not committed)
-/notebooks # Exploratory analysis notebooks
+/data # Raw datasets (ignored in Git)
+/src # Analysis scripts & graph utilities
+/notebooks # Jupyter exploratory notebooks
+/reports # Visual outputs and summaries
 
----
-
-## 📈 Key Findings
-- Fraudulent transactions exhibit significantly different network connectivity.
-- At a **BFS depth of 3**, fraud transactions tend to cluster, confirmed by statistical tests.
-- Node degree and fraud neighbor counts may serve as useful features for predictive models.
-
----
-
-## 🚀 How to Use
-1. Download the **IEEE-CIS Fraud Detection Dataset** from [Kaggle](https://www.kaggle.com/competitions/ieee-fraud-detection).
-2. Place datasets inside `/data` (they are ignored by Git).
-3. Run notebooks from `/notebooks` to explore or modify analysis.
-4. Install required packages:
-pip install -r requirements.txt
-
-
----
-
-## 📄 License
-This project is licensed under the MIT License.  
-Data usage must comply with the [Kaggle Dataset Terms](https://www.kaggle.com/competitions/ieee-fraud-detection/rules).
-
----
-
-## 🤝 Contributions & Feedback
-Pull requests and feedback are welcome.  
-If you have ideas for further exploration or improvements, feel free to open an issue!
